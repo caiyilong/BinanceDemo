@@ -1,0 +1,42 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - MJRefresh (3.1.15.6)
+  - YTKNetwork (2.0.4):
+    - AFNetworking (~> 3.0)
+  - ZJScrollPageView (0.4.0)
+
+DEPENDENCIES:
+  - MJRefresh
+  - YTKNetwork (~> 2.0.4)
+  - ZJScrollPageView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - MJRefresh
+    - YTKNetwork
+    - ZJScrollPageView
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
+  ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
+
+PODFILE CHECKSUM: a9435cd69287239fde8956303d1f189ca2d5e2d0
+
+COCOAPODS: 1.5.2
