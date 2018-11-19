@@ -7,8 +7,11 @@
 //
 
 #import "MarketViewController.h"
+#import "../NetWorking/Market_Get_Api.h"
 
 @interface MarketViewController ()
+
+@property (nonatomic, copy) NSArray * MarketModels;
 
 @end
 
@@ -16,17 +19,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self requstMarketData];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)requstMarketData{
+    Market_Get_Api *marketApi = [[Market_Get_Api alloc] init];
+    [marketApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        
+        if (request.responseObject) {
+            self.MarketModels = [marketApi marketModels];
+        }
+        
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        
+    }];
 }
-*/
+
+-(void)setMarketModels:(NSArray *)MarketModels{
+    _MarketModels = MarketModels;
+    
+    
+}
+
+
+#pragma mark ----------  lazy load  ---------
+
+
 
 @end

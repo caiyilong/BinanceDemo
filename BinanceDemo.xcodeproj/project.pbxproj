@@ -19,6 +19,11 @@
 		22B6F07421A2892400C4164F /* MarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F07321A2892400C4164F /* MarketViewController.m */; };
 		22B6F07821A2895F00C4164F /* MarketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F07621A2895F00C4164F /* MarketTableViewCell.m */; };
 		22B6F07921A2895F00C4164F /* MarketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B6F07721A2895F00C4164F /* MarketTableViewCell.xib */; };
+		22B6F07C21A298BE00C4164F /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F07B21A298BE00C4164F /* BaseRequest.m */; };
+		22B6F07F21A298FD00C4164F /* Market_Get_Api.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F07E21A298FD00C4164F /* Market_Get_Api.m */; };
+		22B6F08321A29C4200C4164F /* NSDictionary+ExceptionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */; };
+		22B6F08821A29E7900C4164F /* URLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08721A29E7900C4164F /* URLConfig.m */; };
+		22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08A21A2A10400C4164F /* MarketModel.m */; };
 		50E010E4C4520865AA017D1F /* libPods-BinanceDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +66,17 @@
 		22B6F07521A2895F00C4164F /* MarketTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketTableViewCell.h; sourceTree = "<group>"; };
 		22B6F07621A2895F00C4164F /* MarketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketTableViewCell.m; sourceTree = "<group>"; };
 		22B6F07721A2895F00C4164F /* MarketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketTableViewCell.xib; sourceTree = "<group>"; };
+		22B6F07A21A298BE00C4164F /* BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		22B6F07B21A298BE00C4164F /* BaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		22B6F07D21A298FD00C4164F /* Market_Get_Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Market_Get_Api.h; sourceTree = "<group>"; };
+		22B6F07E21A298FD00C4164F /* Market_Get_Api.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Market_Get_Api.m; sourceTree = "<group>"; };
+		22B6F08121A29C4200C4164F /* NSDictionary+ExceptionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ExceptionUtil.h"; sourceTree = "<group>"; };
+		22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ExceptionUtil.m"; sourceTree = "<group>"; };
+		22B6F08421A29C7600C4164F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		22B6F08621A29E7900C4164F /* URLConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLConfig.h; sourceTree = "<group>"; };
+		22B6F08721A29E7900C4164F /* URLConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLConfig.m; sourceTree = "<group>"; };
+		22B6F08921A2A10400C4164F /* MarketModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketModel.h; sourceTree = "<group>"; };
+		22B6F08A21A2A10400C4164F /* MarketModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketModel.m; sourceTree = "<group>"; };
 		361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88539B0ACA8611C363377F /* libPods-BinanceDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC76803A317EC47EFCFC0C /* libPods-BinanceDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +142,7 @@
 			children = (
 				22B6F03821A2877A00C4164F /* AppDelegate.h */,
 				22B6F03921A2877A00C4164F /* AppDelegate.m */,
+				22B6F08021A29C3A00C4164F /* Tools */,
 				22B6F06B21A2887100C4164F /* ViewControllers */,
 				22B6F06E21A2889300C4164F /* SupprotFiles */,
 				22B6F06D21A2887100C4164F /* Models */,
@@ -156,6 +173,12 @@
 		22B6F06A21A2887100C4164F /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
+				22B6F07A21A298BE00C4164F /* BaseRequest.h */,
+				22B6F07B21A298BE00C4164F /* BaseRequest.m */,
+				22B6F07D21A298FD00C4164F /* Market_Get_Api.h */,
+				22B6F07E21A298FD00C4164F /* Market_Get_Api.m */,
+				22B6F08621A29E7900C4164F /* URLConfig.h */,
+				22B6F08721A29E7900C4164F /* URLConfig.m */,
 			);
 			path = NetWorking;
 			sourceTree = "<group>";
@@ -185,6 +208,8 @@
 		22B6F06D21A2887100C4164F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				22B6F08921A2A10400C4164F /* MarketModel.h */,
+				22B6F08A21A2A10400C4164F /* MarketModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,8 +220,18 @@
 				22B6F04121A2877C00C4164F /* Assets.xcassets */,
 				22B6F04721A2877C00C4164F /* main.m */,
 				22B6F04621A2877C00C4164F /* Info.plist */,
+				22B6F08421A29C7600C4164F /* PrefixHeader.pch */,
 			);
 			path = SupprotFiles;
+			sourceTree = "<group>";
+		};
+		22B6F08021A29C3A00C4164F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				22B6F08121A29C4200C4164F /* NSDictionary+ExceptionUtil.h */,
+				22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		2EF869EE8660792E4A5B0038 /* Frameworks */ = {
@@ -435,6 +470,11 @@
 				22B6F04821A2877C00C4164F /* main.m in Sources */,
 				22B6F07121A288F900C4164F /* BaseViewController.m in Sources */,
 				22B6F03A21A2877A00C4164F /* AppDelegate.m in Sources */,
+				22B6F07C21A298BE00C4164F /* BaseRequest.m in Sources */,
+				22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */,
+				22B6F08821A29E7900C4164F /* URLConfig.m in Sources */,
+				22B6F07F21A298FD00C4164F /* Market_Get_Api.m in Sources */,
+				22B6F08321A29C4200C4164F /* NSDictionary+ExceptionUtil.m in Sources */,
 				22B6F07821A2895F00C4164F /* MarketTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,6 +640,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +659,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

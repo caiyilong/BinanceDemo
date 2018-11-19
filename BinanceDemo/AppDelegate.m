@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewControllers/MarketViewController.h"
+#import <AFSecurityPolicy.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self configNetworkEngine];
     MarketViewController *marketVC = [MarketViewController new];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = marketVC;
@@ -25,6 +27,27 @@
     return YES;
 }
 
+-(void)configNetworkEngine
+{
+    ///设置可接受的数据类型
+    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
+    NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", @"text/css", nil];
+    NSString *keypath = @"jsonResponseSerializer.acceptableContentTypes";
+    @try {
+        [agent setValue:acceptableContentTypes forKeyPath:keypath];
+    } @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+    } @finally {
+        
+    }
+    
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = WEB_URL;
+    config.securityPolicy.allowInvalidCertificates = YES;
+    config.securityPolicy.validatesDomainName = NO;
+
+    NSLog(@"-----------请求环境:-----------\n%@",config.baseUrl);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
