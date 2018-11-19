@@ -1,5 +1,5 @@
 //
-//  MarketViewController.h
+//  ChildMarketViewController.h
 //  BinanceDemo
 //
 //  Created by cai on 2018/11/19.
@@ -7,11 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+#import <ZJScrollPageView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MarketViewController : BaseViewController
+@interface ChildMarketViewController : BaseViewController<ZJScrollPageViewChildVcDelegate>
 
 @end
 

@@ -24,6 +24,7 @@
 		22B6F08321A29C4200C4164F /* NSDictionary+ExceptionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */; };
 		22B6F08821A29E7900C4164F /* URLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08721A29E7900C4164F /* URLConfig.m */; };
 		22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08A21A2A10400C4164F /* MarketModel.m */; };
+		22B6F08E21A2B54600C4164F /* ChildMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */; };
 		50E010E4C4520865AA017D1F /* libPods-BinanceDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		22B6F08721A29E7900C4164F /* URLConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLConfig.m; sourceTree = "<group>"; };
 		22B6F08921A2A10400C4164F /* MarketModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketModel.h; sourceTree = "<group>"; };
 		22B6F08A21A2A10400C4164F /* MarketModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketModel.m; sourceTree = "<group>"; };
+		22B6F08C21A2B54600C4164F /* ChildMarketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildMarketViewController.h; sourceTree = "<group>"; };
+		22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildMarketViewController.m; sourceTree = "<group>"; };
 		361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88539B0ACA8611C363377F /* libPods-BinanceDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC76803A317EC47EFCFC0C /* libPods-BinanceDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +193,8 @@
 				22B6F07021A288F900C4164F /* BaseViewController.m */,
 				22B6F07221A2892400C4164F /* MarketViewController.h */,
 				22B6F07321A2892400C4164F /* MarketViewController.m */,
+				22B6F08C21A2B54600C4164F /* ChildMarketViewController.h */,
+				22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				22B6F07C21A298BE00C4164F /* BaseRequest.m in Sources */,
 				22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */,
 				22B6F08821A29E7900C4164F /* URLConfig.m in Sources */,
+				22B6F08E21A2B54600C4164F /* ChildMarketViewController.m in Sources */,
 				22B6F07F21A298FD00C4164F /* Market_Get_Api.m in Sources */,
 				22B6F08321A29C4200C4164F /* NSDictionary+ExceptionUtil.m in Sources */,
 				22B6F07821A2895F00C4164F /* MarketTableViewCell.m in Sources */,

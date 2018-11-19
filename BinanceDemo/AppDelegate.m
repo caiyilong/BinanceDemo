@@ -10,6 +10,7 @@
 #import "ViewControllers/MarketViewController.h"
 #import <AFSecurityPolicy.h>
 
+
 @interface AppDelegate ()
 
 @end
@@ -21,8 +22,9 @@
     // Override point for customization after application launch.
     [self configNetworkEngine];
     MarketViewController *marketVC = [MarketViewController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:marketVC];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = marketVC;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
