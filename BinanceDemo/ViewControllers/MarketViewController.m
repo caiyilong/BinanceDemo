@@ -29,6 +29,13 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#333333"]] forBarMetrics:UIBarMetricsDefault ];
+    self.navigationController.navigationItem.title = @"Market";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
 
 #pragma mark - ZJScrollPageViewDelegate
 - (NSInteger)numberOfChildViewControllers {
@@ -40,6 +47,7 @@
     
     if (!childVc) {
         childVc = [[ChildMarketViewController alloc] init];
+      
        
     }
     
@@ -91,14 +99,15 @@
         
         style.titleMargin = 29.0;
         
-      //  style.normalTitleColor = [UIColor ];
-      //  style.selectedTitleColor = SKIN_COLOR_STYLE(Main_Black);
-       // style.titleFont = SKIN_FONT_STYLE_FAMILY(FontSize_14, SFProText_Medium);
+        style.normalTitleColor = [UIColor colorWithHexString:@"#ffffff"];
+        style.selectedTitleColor = [UIColor colorWithHexString:@"#FFFF00"];
         style.scrollLineHeight = 2.0;
-       // style.scrollLineColor = SKIN_COLOR_STYLE(Main_Purple);
+        style.scrollLineColor = [UIColor colorWithHexString:@"#FFFF00"];
         style.titleBigScale = 1.0;
-        _pageView = [[ZJScrollPageView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height-88) segmentStyle:style titles:@[@"BTC",@"BNB",@"ETH",@"USDT"] parentViewController:self delegate:self];
+        _pageView = [[ZJScrollPageView alloc] initWithFrame:self.view.frame segmentStyle:style titles:@[@"BTC",@"BNB",@"ETH",@"USDT"] parentViewController:self delegate:self];
+        _pageView.segmentView.backgroundColor = [UIColor colorWithHexString:@"#333333"];
     }
+    
     return _pageView;
 }
 

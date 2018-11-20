@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../Models/MarketModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MarketTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) MarketModel * marketModel;
 @end
 
 NS_ASSUME_NONNULL_END

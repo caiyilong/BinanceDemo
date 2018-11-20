@@ -25,6 +25,8 @@
 		22B6F08821A29E7900C4164F /* URLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08721A29E7900C4164F /* URLConfig.m */; };
 		22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08A21A2A10400C4164F /* MarketModel.m */; };
 		22B6F08E21A2B54600C4164F /* ChildMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */; };
+		22B6F09121A3AE0000C4164F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F09021A3AE0000C4164F /* UIColor+Hex.m */; };
+		22B6F09421A3B15300C4164F /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F09321A3B15300C4164F /* UIImage+color.m */; };
 		50E010E4C4520865AA017D1F /* libPods-BinanceDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,10 @@
 		22B6F08A21A2A10400C4164F /* MarketModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarketModel.m; sourceTree = "<group>"; };
 		22B6F08C21A2B54600C4164F /* ChildMarketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChildMarketViewController.h; sourceTree = "<group>"; };
 		22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildMarketViewController.m; sourceTree = "<group>"; };
+		22B6F08F21A3AE0000C4164F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		22B6F09021A3AE0000C4164F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		22B6F09221A3B15300C4164F /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
+		22B6F09321A3B15300C4164F /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
 		361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88539B0ACA8611C363377F /* libPods-BinanceDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC76803A317EC47EFCFC0C /* libPods-BinanceDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +241,10 @@
 			children = (
 				22B6F08121A29C4200C4164F /* NSDictionary+ExceptionUtil.h */,
 				22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */,
+				22B6F08F21A3AE0000C4164F /* UIColor+Hex.h */,
+				22B6F09021A3AE0000C4164F /* UIColor+Hex.m */,
+				22B6F09221A3B15300C4164F /* UIImage+color.h */,
+				22B6F09321A3B15300C4164F /* UIImage+color.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -273,7 +283,7 @@
 				22B6F03121A2877A00C4164F /* Sources */,
 				22B6F03221A2877A00C4164F /* Frameworks */,
 				22B6F03321A2877A00C4164F /* Resources */,
-				C56B15F5C366FDF1C3183E4C /* [CP] Copy Pods Resources */,
+				15D0F1A77262B150A6F743AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +420,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		15D0F1A77262B150A6F743AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BinanceDemo/Pods-BinanceDemo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BinanceDemo/Pods-BinanceDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		40FC5A20257A0571AD5A5B52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,24 +474,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C56B15F5C366FDF1C3183E4C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BinanceDemo/Pods-BinanceDemo-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BinanceDemo/Pods-BinanceDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,9 +482,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				22B6F07421A2892400C4164F /* MarketViewController.m in Sources */,
+				22B6F09121A3AE0000C4164F /* UIColor+Hex.m in Sources */,
 				22B6F04821A2877C00C4164F /* main.m in Sources */,
 				22B6F07121A288F900C4164F /* BaseViewController.m in Sources */,
 				22B6F03A21A2877A00C4164F /* AppDelegate.m in Sources */,
+				22B6F09421A3B15300C4164F /* UIImage+color.m in Sources */,
 				22B6F07C21A298BE00C4164F /* BaseRequest.m in Sources */,
 				22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */,
 				22B6F08821A29E7900C4164F /* URLConfig.m in Sources */,
@@ -646,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PP9J5YTM9U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
@@ -665,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PP9J5YTM9U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
