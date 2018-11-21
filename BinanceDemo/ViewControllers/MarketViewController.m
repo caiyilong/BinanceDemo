@@ -10,12 +10,13 @@
 #import "../NetWorking/Market_Get_Api.h"
 #import <ZJScrollPageView/ZJScrollPageView.h>
 #import "ChildMarketViewController.h"
+#import "../Models/MarketModel.h"
 
 
 
 @interface MarketViewController ()<ZJScrollPageViewDelegate>
 
-@property (nonatomic, copy) NSArray * MarketModels;
+@property (nonatomic, copy) NSArray<MarketModel *> * marketModels;
 @property (nonatomic, strong) ZJScrollPageView * pageView;
 
 @end
@@ -47,7 +48,7 @@
     
     if (!childVc) {
         childVc = [[ChildMarketViewController alloc] init];
-      
+        
        
     }
     
@@ -58,10 +59,6 @@
 }
 
 
-
-
-
-
 #pragma mark ---------- requstData -------------
 
 -(void)requstMarketData{
@@ -69,7 +66,7 @@
     [marketApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         
         if (request.responseObject) {
-            self.MarketModels = [marketApi marketModels];
+            self.marketModels = [marketApi marketModels];
         }
         
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -77,11 +74,40 @@
     }];
 }
 
--(void)setMarketModels:(NSArray *)MarketModels{
-    _MarketModels = MarketModels;
+-(void)setMarketModels:(NSArray<MarketModel *> *)marketModels{
+    _marketModels = marketModels;
+    [self selectData:marketModels];
+
+}
+-(void)selectData:(NSArray<MarketModel *> *)arr{
+    //筛选母币
+    NSMutableArray<NSDictionary *> *mainMulArr = [NSMutableArray array];
+  
+    NSMutableArray *nameArr = [NSMutableArray array];
+    [arr enumerateObjectsUsingBlock:^(MarketModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [nameArr addObject:obj.quoteAsset];
+       
+    }];
+     NSSet *mathorCoinSet = [NSSet setWithArray:nameArr.copy];
+    //根据母币分类
+    [mathorCoinSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSMutableArray *itemArr = [NSMutableArray array];
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:itemArr forKey:obj];
+        [mainMulArr addObject:dic];
+    }];
     
+    [arr enumerateObjectsUsingBlock:^(MarketModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        for (NSDictionary *dic in mainMulArr) {
+            if ([[dic allKeys].firstObject isEqualToString:obj.quoteAsset]) {
+                NSMutableArray *arr = [dic objectForKey:obj.quoteAsset];
+                [arr addObject:obj];
+            }
+        }
+    }];
+   
     
 }
+
 
 
 #pragma mark ----------  lazy load  ---------

@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Market_Get_Api : BaseRequest
 
 -(NSArray *)marketModels;
-
+-(NSSet *)titleSet;
+-( NSMutableArray<NSDictionary *> *)selectedModels;
 @end
 
 NS_ASSUME_NONNULL_END
