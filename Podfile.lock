@@ -15,28 +15,28 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - MJRefresh (3.1.15.6)
+  - SVPullToRefresh (0.4.1)
   - YTKNetwork (2.0.4):
     - AFNetworking (~> 3.0)
-  - ZJScrollPageView (0.4.0)
 
 DEPENDENCIES:
   - MJRefresh
+  - SVPullToRefresh
   - YTKNetwork (~> 2.0.4)
-  - ZJScrollPageView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - MJRefresh
+    - SVPullToRefresh
     - YTKNetwork
-    - ZJScrollPageView
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
-  ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
 
-PODFILE CHECKSUM: a9435cd69287239fde8956303d1f189ca2d5e2d0
+PODFILE CHECKSUM: 6b35c78636a7db201913ca58edbc0668f1e33120
 
 COCOAPODS: 1.5.2

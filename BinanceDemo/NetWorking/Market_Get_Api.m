@@ -40,8 +40,8 @@
     return @[];
 }
 
--( NSMutableArray<NSDictionary *> *)selectedModels{
-    NSMutableArray<NSDictionary *> *mainMulArr = [self selectData:[self marketModels]];
+-( NSDictionary *)selectedModels{
+   NSDictionary  *mainMulArr = [self selectData:[self marketModels]];
     return mainMulArr;
 }
 
@@ -55,26 +55,30 @@
     return mathorCoinSet;
 }
 
--( NSMutableArray<NSDictionary *> *)selectData:(NSArray<MarketModel *> *)arr{
+-(NSDictionary *)selectData:(NSArray<MarketModel *> *)arr{
     //筛选母币
-    NSMutableArray<NSDictionary *> *mainMulArr = [NSMutableArray array];
+    NSMutableDictionary *mainMuldic = [NSMutableDictionary  dictionary];
     NSSet *mathorCoinSet = [self titleSet];
     //根据母币分类
     [mathorCoinSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSMutableArray *itemArr = [NSMutableArray array];
-        NSDictionary *dic = [NSDictionary dictionaryWithObject:itemArr forKey:obj];
-        [mainMulArr addObject:dic];
+        [mainMuldic setObject:itemArr forKey:obj];
     }];
     
     [arr enumerateObjectsUsingBlock:^(MarketModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSDictionary *dic in mainMulArr) {
-            if ([[dic allKeys].firstObject isEqualToString:obj.quoteAsset]) {
-                NSMutableArray *arr = [dic objectForKey:obj.quoteAsset];
-                [arr addObject:obj];
+      
+        [mainMuldic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull objArr, BOOL * _Nonnull stop) {
+            
+            if ([key isEqualToString:obj.quoteAsset]) {
+
+                NSMutableArray *objMulArr = objArr;
+                [objMulArr addObject:obj];
             }
-        }
+            
+        }];
+        
     }];
-    return mainMulArr;
+    return mainMuldic.copy;
     
 }
 

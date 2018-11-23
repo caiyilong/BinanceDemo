@@ -26,7 +26,10 @@
 
 -(void)setMarketModel:(MarketModel *)marketModel{
     _marketModel = marketModel;
-    
+    self.childCoinLbl.text = marketModel.symbol;
+    self.volLbl.text = marketModel.volume;
+    self.btcPriceLbl.text = marketModel.open;
+   // self.usdPriceLbl.text = marketModel.close;
 }
 
 

@@ -3,8 +3,8 @@ target 'BinanceDemo' do
 
   # use_frameworks!
     pod 'YTKNetwork', '~> 2.0.4'
-    pod 'ZJScrollPageView'
     pod 'MJRefresh'
+    pod 'SVPullToRefresh'
 
 
   target 'BinanceDemoTests' do

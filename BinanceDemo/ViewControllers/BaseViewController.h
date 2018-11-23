@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
+///上拉刷新展示view
+@property (nonatomic,strong) UIView *topRefreshView;
+
+- (void)startTopRefreshImageAnimation;
+- (void)stopTopRefreshImageAnimation;
 
 @end
 

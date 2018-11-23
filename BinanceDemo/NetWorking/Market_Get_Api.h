@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(NSArray *)marketModels;
 -(NSSet *)titleSet;
--( NSMutableArray<NSDictionary *> *)selectedModels;
+-(NSDictionary *)selectedModels;
 @end
 
 NS_ASSUME_NONNULL_END

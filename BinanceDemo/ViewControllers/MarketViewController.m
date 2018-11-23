@@ -8,7 +8,7 @@
 
 #import "MarketViewController.h"
 #import "../NetWorking/Market_Get_Api.h"
-#import <ZJScrollPageView/ZJScrollPageView.h>
+#import "../Tools/ZJScrollPageView/ZJScrollPageView.h"
 #import "ChildMarketViewController.h"
 #import "../Models/MarketModel.h"
 
@@ -16,8 +16,11 @@
 
 @interface MarketViewController ()<ZJScrollPageViewDelegate>
 
-@property (nonatomic, copy) NSArray<MarketModel *> * marketModels;
+@property (nonatomic, copy)  NSDictionary  *selectedModels;
+@property (nonatomic, strong) NSSet * titleSet;
 @property (nonatomic, strong) ZJScrollPageView * pageView;
+@property (nonatomic, assign) NSInteger  index;
+@property (nonatomic, strong) ChildMarketViewController * currentVC;
 
 @end
 
@@ -25,7 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requstMarketData];
+    [self requstMarketDataWithCachIgnore:YES andFinishHanle:^{
+        
+    }];
     [self.view addSubview:self.pageView];
     
 }
@@ -35,78 +40,77 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#333333"]] forBarMetrics:UIBarMetricsDefault ];
     self.navigationController.navigationItem.title = @"Market";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 
+-(void)setTitleSet:(NSSet *)titleSet{
+    _titleSet = titleSet;
+    [self.pageView reloadWithNewTitles:titleSet.allObjects];
+}
+
+-(void)setSelectedModels:(NSDictionary *)selectedModels{
+    _selectedModels = selectedModels;
+    self.currentVC.marketModels = [selectedModels objectForKey: [self.titleSet.allObjects objectAtIndex:self.index]];
+}
+
 #pragma mark - ZJScrollPageViewDelegate
 - (NSInteger)numberOfChildViewControllers {
-    return 4;
+    return self.titleSet.count;
 }
 
 - (UIViewController<ZJScrollPageViewChildVcDelegate> *)childViewController:(UIViewController<ZJScrollPageViewChildVcDelegate> *)reuseViewController forIndex:(NSInteger)index {
     ChildMarketViewController *childVc = (ChildMarketViewController *)reuseViewController;
-    
     if (!childVc) {
         childVc = [[ChildMarketViewController alloc] init];
-        
-       
+        NSString *key = [[self.titleSet allObjects] objectAtIndex:index];
+        childVc.marketModels= [self.selectedModels objectForKey:key];
+        childVc.marketVC = self;
     }
-    
+    self.currentVC = childVc;
     NSLog(@"%ld-----%@",(long)index, childVc);
-  
     
     return childVc;
 }
 
 
+-(BOOL)shouldAutomaticallyForwardAppearanceMethods{
+    return NO;
+}
+
+
+
 #pragma mark ---------- requstData -------------
 
--(void)requstMarketData{
+-(void)requstMarketDataWithCachIgnore:(BOOL) isFromCache andFinishHanle:(void(^)(void)) finishiHanle {
     Market_Get_Api *marketApi = [[Market_Get_Api alloc] init];
-    [marketApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        
-        if (request.responseObject) {
-            self.marketModels = [marketApi marketModels];
-        }
-        
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        
-    }];
-}
-
--(void)setMarketModels:(NSArray<MarketModel *> *)marketModels{
-    _marketModels = marketModels;
-    [self selectData:marketModels];
-
-}
--(void)selectData:(NSArray<MarketModel *> *)arr{
-    //筛选母币
-    NSMutableArray<NSDictionary *> *mainMulArr = [NSMutableArray array];
-  
-    NSMutableArray *nameArr = [NSMutableArray array];
-    [arr enumerateObjectsUsingBlock:^(MarketModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [nameArr addObject:obj.quoteAsset];
-       
-    }];
-     NSSet *mathorCoinSet = [NSSet setWithArray:nameArr.copy];
-    //根据母币分类
-    [mathorCoinSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSMutableArray *itemArr = [NSMutableArray array];
-        NSDictionary *dic = [NSDictionary dictionaryWithObject:itemArr forKey:obj];
-        [mainMulArr addObject:dic];
-    }];
-    
-    [arr enumerateObjectsUsingBlock:^(MarketModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSDictionary *dic in mainMulArr) {
-            if ([[dic allKeys].firstObject isEqualToString:obj.quoteAsset]) {
-                NSMutableArray *arr = [dic objectForKey:obj.quoteAsset];
-                [arr addObject:obj];
+    if (isFromCache) {
+        if ([marketApi loadCacheWithError:nil]) {
+            
+            if ([marketApi titleSet].count >0) {
+               
+                self.titleSet = [marketApi titleSet];
+                self.selectedModels = [marketApi selectedModels];
             }
+            
         }
-    }];
-   
+    }
     
+    marketApi.ignoreCache = YES;
+    [marketApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"------------->获取网络数据成功");
+        if (request.responseObject) {
+            self.selectedModels = [marketApi selectedModels];
+            self.titleSet = [marketApi titleSet];
+            finishiHanle();
+        }
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        finishiHanle();
+        
+    }];
 }
+
+
 
 
 
@@ -130,7 +134,7 @@
         style.scrollLineHeight = 2.0;
         style.scrollLineColor = [UIColor colorWithHexString:@"#FFFF00"];
         style.titleBigScale = 1.0;
-        _pageView = [[ZJScrollPageView alloc] initWithFrame:self.view.frame segmentStyle:style titles:@[@"BTC",@"BNB",@"ETH",@"USDT"] parentViewController:self delegate:self];
+        _pageView = [[ZJScrollPageView alloc] initWithFrame:self.view.frame segmentStyle:style titles:self.titleSet.allObjects parentViewController:self delegate:self];
         _pageView.segmentView.backgroundColor = [UIColor colorWithHexString:@"#333333"];
     }
     

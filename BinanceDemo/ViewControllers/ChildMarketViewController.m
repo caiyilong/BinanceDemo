@@ -7,9 +7,11 @@
 //
 
 #import "ChildMarketViewController.h"
+#import "../Views/MarketTableViewCell.h"
+#import "../Tools/UITableView+refresh.h"
 
 @interface ChildMarketViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView * tableView;
+
 
 @end
 
@@ -20,34 +22,54 @@
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
 }
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    if (self.tableView.pullToRefreshView == nil) {
+        __weak typeof(self) weakSelf = self;
+        [self.tableView addPullToRefreshWithActionHandler:^{
+            [weakSelf startTopRefreshImageAnimation];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf stopTopRefreshImageAnimation];
+                
+            });
+        }];
+        
+        [self.tableView.pullToRefreshView setCustomView:self.topRefreshView forState:SVPullToRefreshStateAll];
+    }
+ 
+}
 
+-(void)setMarketModels:(NSArray<MarketModel *> *)marketModels{
+    _marketModels = marketModels;
+    [self.tableView reloadData];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.marketModels.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID ];
+    MarketTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID ];
+    cell.marketModel = [self.marketModels objectAtIndex:indexPath.row];
     return cell;
 }
-
+//0x7fae4e8bc200
+//0x7fae4e8bf000
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-125) style:UITableViewStylePlain];
+    
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.rowHeight = 90.f;
         _tableView.tableFooterView = [UIView new];
         _tableView.backgroundColor = [UIColor colorWithHexString:@"#333333"];
-        __weak typeof(self) weakSelf = self;
-        MJRefreshNormalHeader *mjHeard = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            
-        }];
-        _tableView.mj_header = mjHeard;
         [_tableView registerNib:[UINib nibWithNibName:@"MarketTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
     return _tableView;
 }
+
+
 
 @end
 

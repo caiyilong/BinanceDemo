@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MarketViewController : BaseViewController
-
+-(void)requstMarketDataWithCachIgnore:(BOOL) isFromCache andFinishHanle:(void(^)(void)) finishiHanle;
 @end
 
 NS_ASSUME_NONNULL_END

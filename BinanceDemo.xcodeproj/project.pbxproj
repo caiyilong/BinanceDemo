@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		042A8406B223A7842D5413DE /* libPods-BinanceDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BC76803A317EC47EFCFC0C /* libPods-BinanceDemo.a */; };
 		0625F4B6AF283B61B1A6C144 /* libPods-BinanceDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A88539B0ACA8611C363377F /* libPods-BinanceDemoUITests.a */; };
+		2223015621A7F896008E834E /* refresh_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2223015421A7F895008E834E /* refresh_icon@2x.png */; };
+		2223015721A7F896008E834E /* refresh_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2223015521A7F896008E834E /* refresh_icon@3x.png */; };
+		2247CE7C21A564370009513E /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE6C21A564370009513E /* UIView+ZJFrame.m */; };
+		2247CE7D21A564370009513E /* ZJTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7121A564370009513E /* ZJTitleView.m */; };
+		2247CE7E21A564370009513E /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7221A564370009513E /* UIViewController+ZJScrollPageController.m */; };
+		2247CE7F21A564370009513E /* ZJContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7521A564370009513E /* ZJContentView.m */; };
+		2247CE8021A564370009513E /* ZJCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7621A564370009513E /* ZJCollectionView.m */; };
+		2247CE8121A564370009513E /* ZJSegmentStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7721A564370009513E /* ZJSegmentStyle.m */; };
+		2247CE8221A564370009513E /* ZJScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7821A564370009513E /* ZJScrollSegmentView.m */; };
+		2247CE8321A564370009513E /* ZJScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2247CE7921A564370009513E /* ZJScrollPageView.m */; };
 		22B6F03A21A2877A00C4164F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F03921A2877A00C4164F /* AppDelegate.m */; };
 		22B6F04221A2877C00C4164F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B6F04121A2877C00C4164F /* Assets.xcassets */; };
 		22B6F04521A2877C00C4164F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B6F04321A2877C00C4164F /* LaunchScreen.storyboard */; };
@@ -27,6 +37,7 @@
 		22B6F08E21A2B54600C4164F /* ChildMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F08D21A2B54600C4164F /* ChildMarketViewController.m */; };
 		22B6F09121A3AE0000C4164F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F09021A3AE0000C4164F /* UIColor+Hex.m */; };
 		22B6F09421A3B15300C4164F /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F09321A3B15300C4164F /* UIImage+color.m */; };
+		22B6F09721A5437900C4164F /* UITableView+refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B6F09621A5437900C4164F /* UITableView+refresh.m */; };
 		50E010E4C4520865AA017D1F /* libPods-BinanceDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +60,25 @@
 
 /* Begin PBXFileReference section */
 		1B21B288B106DB078680A7F3 /* Pods-BinanceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BinanceDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BinanceDemo/Pods-BinanceDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2223015421A7F895008E834E /* refresh_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_icon@2x.png"; sourceTree = "<group>"; };
+		2223015521A7F896008E834E /* refresh_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh_icon@3x.png"; sourceTree = "<group>"; };
+		2247CE6B21A564370009513E /* ZJContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJContentView.h; sourceTree = "<group>"; };
+		2247CE6C21A564370009513E /* UIView+ZJFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJFrame.m"; sourceTree = "<group>"; };
+		2247CE6D21A564370009513E /* ZJCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCollectionView.h; sourceTree = "<group>"; };
+		2247CE6E21A564370009513E /* ZJScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollSegmentView.h; sourceTree = "<group>"; };
+		2247CE6F21A564370009513E /* ZJScrollPageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageViewDelegate.h; sourceTree = "<group>"; };
+		2247CE7021A564370009513E /* ZJSegmentStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentStyle.h; sourceTree = "<group>"; };
+		2247CE7121A564370009513E /* ZJTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTitleView.m; sourceTree = "<group>"; };
+		2247CE7221A564370009513E /* UIViewController+ZJScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZJScrollPageController.m"; sourceTree = "<group>"; };
+		2247CE7321A564370009513E /* ZJScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageView.h; sourceTree = "<group>"; };
+		2247CE7421A564370009513E /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
+		2247CE7521A564370009513E /* ZJContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJContentView.m; sourceTree = "<group>"; };
+		2247CE7621A564370009513E /* ZJCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCollectionView.m; sourceTree = "<group>"; };
+		2247CE7721A564370009513E /* ZJSegmentStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentStyle.m; sourceTree = "<group>"; };
+		2247CE7821A564370009513E /* ZJScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollSegmentView.m; sourceTree = "<group>"; };
+		2247CE7921A564370009513E /* ZJScrollPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollPageView.m; sourceTree = "<group>"; };
+		2247CE7A21A564370009513E /* UIViewController+ZJScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZJScrollPageController.h"; sourceTree = "<group>"; };
+		2247CE7B21A564370009513E /* ZJTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTitleView.h; sourceTree = "<group>"; };
 		22B6F03521A2877A00C4164F /* BinanceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinanceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B6F03821A2877A00C4164F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22B6F03921A2877A00C4164F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -86,6 +116,8 @@
 		22B6F09021A3AE0000C4164F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		22B6F09221A3B15300C4164F /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
 		22B6F09321A3B15300C4164F /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
+		22B6F09521A5437900C4164F /* UITableView+refresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+refresh.h"; sourceTree = "<group>"; };
+		22B6F09621A5437900C4164F /* UITableView+refresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+refresh.m"; sourceTree = "<group>"; };
 		361ABB460EED5DA8382D54F6 /* libPods-BinanceDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A88539B0ACA8611C363377F /* libPods-BinanceDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC76803A317EC47EFCFC0C /* libPods-BinanceDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BinanceDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +156,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2247CE6A21A564370009513E /* ZJScrollPageView */ = {
+			isa = PBXGroup;
+			children = (
+				2247CE6B21A564370009513E /* ZJContentView.h */,
+				2247CE6C21A564370009513E /* UIView+ZJFrame.m */,
+				2247CE6D21A564370009513E /* ZJCollectionView.h */,
+				2247CE6E21A564370009513E /* ZJScrollSegmentView.h */,
+				2247CE6F21A564370009513E /* ZJScrollPageViewDelegate.h */,
+				2247CE7021A564370009513E /* ZJSegmentStyle.h */,
+				2247CE7121A564370009513E /* ZJTitleView.m */,
+				2247CE7221A564370009513E /* UIViewController+ZJScrollPageController.m */,
+				2247CE7321A564370009513E /* ZJScrollPageView.h */,
+				2247CE7421A564370009513E /* UIView+ZJFrame.h */,
+				2247CE7521A564370009513E /* ZJContentView.m */,
+				2247CE7621A564370009513E /* ZJCollectionView.m */,
+				2247CE7721A564370009513E /* ZJSegmentStyle.m */,
+				2247CE7821A564370009513E /* ZJScrollSegmentView.m */,
+				2247CE7921A564370009513E /* ZJScrollPageView.m */,
+				2247CE7A21A564370009513E /* UIViewController+ZJScrollPageController.h */,
+				2247CE7B21A564370009513E /* ZJTitleView.h */,
+			);
+			path = ZJScrollPageView;
+			sourceTree = "<group>";
+		};
 		22B6F02C21A2877A00C4164F = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +284,8 @@
 		22B6F06E21A2889300C4164F /* SupprotFiles */ = {
 			isa = PBXGroup;
 			children = (
+				2223015421A7F895008E834E /* refresh_icon@2x.png */,
+				2223015521A7F896008E834E /* refresh_icon@3x.png */,
 				22B6F04121A2877C00C4164F /* Assets.xcassets */,
 				22B6F04721A2877C00C4164F /* main.m */,
 				22B6F04621A2877C00C4164F /* Info.plist */,
@@ -239,12 +297,15 @@
 		22B6F08021A29C3A00C4164F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2247CE6A21A564370009513E /* ZJScrollPageView */,
 				22B6F08121A29C4200C4164F /* NSDictionary+ExceptionUtil.h */,
 				22B6F08221A29C4200C4164F /* NSDictionary+ExceptionUtil.m */,
 				22B6F08F21A3AE0000C4164F /* UIColor+Hex.h */,
 				22B6F09021A3AE0000C4164F /* UIColor+Hex.m */,
 				22B6F09221A3B15300C4164F /* UIImage+color.h */,
 				22B6F09321A3B15300C4164F /* UIImage+color.m */,
+				22B6F09521A5437900C4164F /* UITableView+refresh.h */,
+				22B6F09621A5437900C4164F /* UITableView+refresh.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -379,9 +440,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2223015721A7F896008E834E /* refresh_icon@3x.png in Resources */,
 				22B6F07921A2895F00C4164F /* MarketTableViewCell.xib in Resources */,
 				22B6F04521A2877C00C4164F /* LaunchScreen.storyboard in Resources */,
 				22B6F04221A2877C00C4164F /* Assets.xcassets in Resources */,
+				2223015621A7F896008E834E /* refresh_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,14 +549,23 @@
 				22B6F04821A2877C00C4164F /* main.m in Sources */,
 				22B6F07121A288F900C4164F /* BaseViewController.m in Sources */,
 				22B6F03A21A2877A00C4164F /* AppDelegate.m in Sources */,
+				2247CE7C21A564370009513E /* UIView+ZJFrame.m in Sources */,
+				2247CE7F21A564370009513E /* ZJContentView.m in Sources */,
+				2247CE7E21A564370009513E /* UIViewController+ZJScrollPageController.m in Sources */,
 				22B6F09421A3B15300C4164F /* UIImage+color.m in Sources */,
+				2247CE8221A564370009513E /* ZJScrollSegmentView.m in Sources */,
 				22B6F07C21A298BE00C4164F /* BaseRequest.m in Sources */,
 				22B6F08B21A2A10400C4164F /* MarketModel.m in Sources */,
+				2247CE7D21A564370009513E /* ZJTitleView.m in Sources */,
 				22B6F08821A29E7900C4164F /* URLConfig.m in Sources */,
+				2247CE8321A564370009513E /* ZJScrollPageView.m in Sources */,
+				2247CE8021A564370009513E /* ZJCollectionView.m in Sources */,
 				22B6F08E21A2B54600C4164F /* ChildMarketViewController.m in Sources */,
 				22B6F07F21A298FD00C4164F /* Market_Get_Api.m in Sources */,
 				22B6F08321A29C4200C4164F /* NSDictionary+ExceptionUtil.m in Sources */,
 				22B6F07821A2895F00C4164F /* MarketTableViewCell.m in Sources */,
+				22B6F09721A5437900C4164F /* UITableView+refresh.m in Sources */,
+				2247CE8121A564370009513E /* ZJSegmentStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +734,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,6 +755,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BinanceDemo/SupprotFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = BinanceDemo/SupprotFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
