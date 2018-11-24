@@ -19,9 +19,7 @@
 @property (nonatomic, copy)  NSDictionary  *selectedModels;
 @property (nonatomic, strong) NSSet * titleSet;
 @property (nonatomic, strong) ZJScrollPageView * pageView;
-
 @property (nonatomic, strong) UISearchBar * searchBar;
-
 @property (nonatomic, strong) ChildMarketViewController * currentVC;
 
 @end
@@ -32,7 +30,6 @@
     [super viewDidLoad];
     [self requstMarketDataWithCachIgnore:YES andFinishHanle:^{}];
     [self.view addSubview:self.pageView];
-
     
 }
 
@@ -56,6 +53,7 @@
     [self selectDataForSearch:self.searchBar.text];
 }
 
+#pragma mark - UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"------serchText:%@",searchText);
     [self selectDataForSearch:searchText];

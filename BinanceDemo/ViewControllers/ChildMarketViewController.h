@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSArray<MarketModel *> * marketModels;
 @property (nonatomic, strong) MarketViewController * marketVC;
-@property (nonatomic, assign) NSUInteger * index;
 
 @end
 
