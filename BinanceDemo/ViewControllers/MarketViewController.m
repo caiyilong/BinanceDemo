@@ -14,12 +14,14 @@
 
 
 
-@interface MarketViewController ()<ZJScrollPageViewDelegate>
+@interface MarketViewController ()<ZJScrollPageViewDelegate,UISearchBarDelegate>
 
 @property (nonatomic, copy)  NSDictionary  *selectedModels;
 @property (nonatomic, strong) NSSet * titleSet;
 @property (nonatomic, strong) ZJScrollPageView * pageView;
-@property (nonatomic, assign) NSInteger  index;
+
+@property (nonatomic, strong) UISearchBar * searchBar;
+
 @property (nonatomic, strong) ChildMarketViewController * currentVC;
 
 @end
@@ -28,30 +30,53 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requstMarketDataWithCachIgnore:YES andFinishHanle:^{
-        
-    }];
+    [self requstMarketDataWithCachIgnore:YES andFinishHanle:^{}];
     [self.view addSubview:self.pageView];
+
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"#333333"]] forBarMetrics:UIBarMetricsDefault ];
-    self.navigationController.navigationItem.title = @"Market";
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar addSubview:self.searchBar];
 
 }
 
-
 -(void)setTitleSet:(NSSet *)titleSet{
-    _titleSet = titleSet;
-    [self.pageView reloadWithNewTitles:titleSet.allObjects];
+    //当交易对有变化时  刷新segment
+    if (_titleSet.count > 0 && _titleSet.count!=titleSet.count) {
+         [self.pageView reloadWithNewTitles:titleSet.allObjects];
+    }
+     _titleSet = titleSet;
 }
 
 -(void)setSelectedModels:(NSDictionary *)selectedModels{
     _selectedModels = selectedModels;
-    self.currentVC.marketModels = [selectedModels objectForKey: [self.titleSet.allObjects objectAtIndex:self.index]];
+    [self selectDataForSearch:self.searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    NSLog(@"------serchText:%@",searchText);
+    [self selectDataForSearch:searchText];
+}
+
+-(void)selectDataForSearch:(NSString *)searchText{
+    
+    if (searchText.length==0) {
+         self.currentVC.marketModels = [self.selectedModels objectForKey: [self.titleSet.allObjects objectAtIndex:self.index]];
+        return;
+    }
+    NSArray<MarketModel *> *models = [self.selectedModels objectForKey: [self.titleSet.allObjects objectAtIndex:self.index]];
+    NSMutableArray< MarketModel *> *searchArr = [NSMutableArray array];
+    
+    for (MarketModel *model in models) {
+        if ([model.symbol containsString:[searchText uppercaseString]]) {
+            [searchArr addObject:model];
+        }
+    }
+    
+     self.currentVC.marketModels = searchArr;
 }
 
 #pragma mark - ZJScrollPageViewDelegate
@@ -69,7 +94,10 @@
     }
     self.currentVC = childVc;
     NSLog(@"%ld-----%@",(long)index, childVc);
-    
+    self.index = index;
+    self.searchBar.text = @"";
+    [self.searchBar endEditing:YES];
+    [self selectDataForSearch:@""];
     return childVc;
 }
 
@@ -88,33 +116,38 @@
         if ([marketApi loadCacheWithError:nil]) {
             
             if ([marketApi titleSet].count >0) {
-               
                 self.titleSet = [marketApi titleSet];
                 self.selectedModels = [marketApi selectedModels];
             }
-            
         }
     }
-    
     marketApi.ignoreCache = YES;
     [marketApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"------------->获取网络数据成功");
         if (request.responseObject) {
             self.selectedModels = [marketApi selectedModels];
             self.titleSet = [marketApi titleSet];
-            finishiHanle();
+            if (finishiHanle) {
+                finishiHanle();
+            }
         }
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        finishiHanle();
+        if (finishiHanle) {
+            finishiHanle();
+        }
         
     }];
 }
 
-
-
-
-
 #pragma mark ----------  lazy load  ---------
+
+-(UISearchBar *)searchBar{
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 0, ScreenWidth-40, 40)];
+        _searchBar.delegate = self;
+    }
+    return _searchBar;
+}
 
 -(ZJScrollPageView *)pageView{
     if (!_pageView) {
@@ -124,11 +157,8 @@
         style.adjustCoverOrLineWidth = YES;
         // 颜色渐变
         style.gradualChangeTitleColor = YES;
-        
         style.segmentHeight = 39.0;
-        
         style.titleMargin = 29.0;
-        
         style.normalTitleColor = [UIColor colorWithHexString:@"#ffffff"];
         style.selectedTitleColor = [UIColor colorWithHexString:@"#FFFF00"];
         style.scrollLineHeight = 2.0;

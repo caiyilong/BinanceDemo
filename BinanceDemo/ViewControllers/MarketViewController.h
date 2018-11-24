@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MarketViewController : BaseViewController
+@property (nonatomic, assign) NSInteger  index;
 -(void)requstMarketDataWithCachIgnore:(BOOL) isFromCache andFinishHanle:(void(^)(void)) finishiHanle;
 @end
 

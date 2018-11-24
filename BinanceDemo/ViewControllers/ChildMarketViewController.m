@@ -9,7 +9,6 @@
 #import "ChildMarketViewController.h"
 #import "../Views/MarketTableViewCell.h"
 #import "../Tools/UITableView+refresh.h"
-
 @interface ChildMarketViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 
@@ -20,23 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
+  
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (self.tableView.pullToRefreshView == nil) {
-        __weak typeof(self) weakSelf = self;
-        [self.tableView addPullToRefreshWithActionHandler:^{
-            [weakSelf startTopRefreshImageAnimation];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf stopTopRefreshImageAnimation];
-                
-            });
+    MJRefreshNormalHeader *heard = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.marketVC requstMarketDataWithCachIgnore:NO andFinishHanle:^{
+            [self.tableView.mj_header endRefreshing];
         }];
-        
-        [self.tableView.pullToRefreshView setCustomView:self.topRefreshView forState:SVPullToRefreshStateAll];
-    }
+    }];
+    self.tableView.mj_header = heard;
  
+}
+- (void)zj_viewDidLoadForIndex:(NSInteger)index {
+   [self.view addSubview:self.tableView];
+    
 }
 
 -(void)setMarketModels:(NSArray<MarketModel *> *)marketModels{
