@@ -143,6 +143,7 @@
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 0, ScreenWidth-40, 40)];
         _searchBar.delegate = self;
+        _searchBar.placeholder = @"搜索交易对";
     }
     return _searchBar;
 }
